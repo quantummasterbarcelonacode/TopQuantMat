@@ -21,6 +21,7 @@ conda install -c conda-forge qsymm
 conda install -c conda-forge sympy
 
 #Add a path to the content
+rm -Rf /content/conda_dir
 ln -s LATEST_PYTHON_PATH/site-packages /content/conda_dir
 echo ${LATEST_PYTHON_PATH}/site-packages
 echo "All requested packages already installed."
