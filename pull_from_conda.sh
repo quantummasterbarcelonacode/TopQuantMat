@@ -13,15 +13,14 @@ wget https://repo.continuum.io/miniconda/$MINICONDA_INSTALLER_SCRIPT>log
 chmod +x $MINICONDA_INSTALLER_SCRIPT
 ./$MINICONDA_INSTALLER_SCRIPT -b -f -p $MINICONDA_PREFIX>log
 conda install --channel defaults conda python_version --yes>log
-conda update --channel defaults --all --yes#&>log
+conda update --channel defaults --all --yes&>log
 fi
 export PYTHONPATH=$PYTHONPATH:"${LATEST_PYTHON_PATH}site-packages"
-conda install -c conda-forge kwant 
-conda install -c conda-forge qsymm
-conda install -c conda-forge sympy
+conda install -c conda-forge kwant&>log 
+conda install -c conda-forge qsymm&>log
+conda install -c conda-forge sympy&>log
 
 #Add a path to the content
 rm -Rf /content/conda_dir
 ln -s LATEST_PYTHON_PATH/site-packages /content/conda_dir
-echo ${LATEST_PYTHON_PATH}/site-packages
 echo "All requested packages already installed."
