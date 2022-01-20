@@ -21,4 +21,4 @@ conda update --channel defaults --all --yes#&>log
 #conda install -c conda-forge kwant &>log
 fi
 export PYTHONPATH=$PYTHONPATH:"${LATEST_PYTHON_PATH}site-packages"
-echo "All requested packages already installed.
+echo "All requested packages already installed."
