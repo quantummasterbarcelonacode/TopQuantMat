@@ -15,12 +15,14 @@ chmod +x $MINICONDA_INSTALLER_SCRIPT
 conda install --channel defaults conda python_version --yes>log
 conda update --channel defaults --all --yes&>log
 fi
-export PYTHONPATH=$PYTHONPATH:"${LATEST_PYTHON_PATH}site-packages"
-conda install -c conda-forge kwant&>log 
-conda install -c conda-forge qsymm&>log
-conda install -c conda-forge sympy&>log
+echo "conda is installed"
+export PYTHONPATH=$PYTHONPATH:"${LATEST_PYTHON_PATH}/site-packages"
+
+conda install -y -c conda-forge kwant&>log 
+conda install -y -c conda-forge qsymm&>log
+conda install -y -c conda-forge sympy&>log
 
 #Add a path to the content
 rm -Rf /content/conda_dir
-ln -s LATEST_PYTHON_PATH/site-packages /content/conda_dir
+ln -s "${LATEST_PYTHON_PATH}/site-packages" /content/conda_dir
 echo "All requested packages already installed."
