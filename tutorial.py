@@ -8,13 +8,21 @@ import matplotlib.pyplot as plt
 from numpy.random import random
 welcome="Packages are loaded. ¡Welcome!"
 
-
+euler = (sp.Symbol("e"),sp.exp(1));
 def Rz(phi):
   return sp.Matrix([  [ sp.cos(phi),-sp.sin(phi), 0 ],
                       [ sp.sin(phi), sp.cos(phi), 0 ],
                       [ 0            , 0        , 1 ]
                     ]);
 
+
+def FirstOrderTaylor( h, x,x0 ):
+    dx   = x; evalx=  list(zip(x,x0));
+    h=h.expand(complex=True)
+    happ = h.subs( evalx );    
+    for xi,dxi in zip(x,dx):
+        happ += sp.diff(h,xi).subs(evalx)*dxi;
+    return sp.simplify(happ);
 
 class Hexagonal:
   lat_vec= sp.Array( [
