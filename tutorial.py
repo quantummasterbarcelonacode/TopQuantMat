@@ -32,7 +32,8 @@ class Hexagonal:
          ]);
 
   rec_vec = sp.Array( sp.Matrix(lat_vec).inv().T*2*sp.pi );
-
+  K0 =sp.Matrix( (rec_vec[0]-rec_vec[1])/3);
+  K1 =sp.Matrix(-(rec_vec[0]-rec_vec[1])/3);
 
 graphene = Hexagonal();
 
