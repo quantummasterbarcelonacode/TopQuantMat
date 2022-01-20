@@ -1,11 +1,21 @@
 import sys
-sys.path.append("/usr/local/lib/python3.7/site-packages")
+sys.path.append("/content/conda_dir")
 import kwant
+import qsymm
+import sympy as sp
 import numpy as np
 import matplotlib.pyplot as plt
 from numpy.random import random
-welcome="Bibliotecas cargadas. ¡Bienvenidos!"
+welcome="Packages are loaded. ¡Welcome!"
 
+
+def Rz(phi):
+  sp.Matrix([  [ sp.cos(2*phi*sp.pi),-sp.sin(2*phi*sp.pi), 0 ],
+               [ sp.sin(2*phi*sp.pi), sp.cos(2*phi*sp.pi), 0 ],
+               [ 0            , 0        , 1 ]
+            ]);
+
+  
 import requests
 import IPython.display as Disp
 grafeno_real = 'https://i.pinimg.com/564x/27/73/60/277360f8a8265b0a8008d1d03023a7be.jpg'
