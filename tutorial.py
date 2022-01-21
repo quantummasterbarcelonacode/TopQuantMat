@@ -37,6 +37,28 @@ class Hexagonal:
 
 graphene = Hexagonal();
 
+
+def dot(x,y):
+  return sp.simplify( ( sp.conjugate(x.T) * y )[0] );
+
+def norm(x):
+  return sp.sqrt(dot(x,x));
+
+def normalize(x):
+  return sp.simplify(x)/norm(x);
+
+def delta(x,y):
+    if(x==y):
+      return 1
+    return 0;
+
+def EigenSystem( H, coord_syst=[] ):
+  eigsyst = H.eigenvects();
+  Psi= [ sp.simplify(normalize(sp.simplify(eigv[0].subs(coord_syst) ) )) for eigval,eigmul,eigv  in eigsyst ];
+  E  = [ sp.simplify(eigval.subs(coord_syst)  ) for eigval,eigmul,eigvec  in eigsyst ];
+  return E,Psi;    
+
+
 import requests
 import IPython.display as Disp
 grafeno_real = 'https://i.pinimg.com/564x/27/73/60/277360f8a8265b0a8008d1d03023a7be.jpg'
