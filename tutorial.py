@@ -58,6 +58,18 @@ def EigenSystem( H, coord_syst=[] ):
   E  = [ sp.simplify(eigval.subs(coord_syst)  ) for eigval,eigmul,eigvec  in eigsyst ];
   return E,Psi;    
 
+def exps2trig(x):
+    return sp.trigsimp(sp.simplify(x).rewrite(sp.sin))
+
+def half_angles(expr,theta):
+  half_ang  = [ ( 1-sp.cos(theta) , 2 * sp.sin(theta/2)**2 ),
+                ( 1+sp.cos(theta) , 2 * sp.cos(theta/2)**2 ),
+                ( 2+2*sp.cos(theta) , 4 * sp.cos(theta/2)**2 ),
+              ];
+  trig_assum= Q.positive(sp.sin(theta/2)) & Q.positive(sp.cos(theta/2));
+
+  return exps2trig(sp.refine(sp.simplify(sp.simplify(expr).subs(half_ang)),trig_assum));
+
 
 import requests
 import IPython.display as Disp
