@@ -6,6 +6,8 @@ import sympy as sp
 import numpy as np
 import matplotlib.pyplot as plt
 from numpy.random import random
+from sympy import Q
+
 welcome="Packages are loaded. ¡Welcome!"
 
 euler = (sp.Symbol("e"),sp.exp(1));
