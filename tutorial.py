@@ -10,6 +10,12 @@ from sympy import Q
 
 welcome="Packages are loaded. ¡Welcome!"
 
+def my_print(message):
+  display(Markdown(message))
+def print_eq(suffix, eq):
+  display(Markdown(suffix + r" $%s$ "%latex(eq)))
+  
+
 euler = (sp.Symbol("e"),sp.exp(1));
 def Rz(phi):
   return sp.Matrix([  [ sp.cos(phi),-sp.sin(phi), 0 ],
@@ -34,8 +40,8 @@ class Hexagonal:
          ]);
 
   rec_vec = sp.Array( sp.Matrix(lat_vec).inv().T*2*sp.pi );
-  K0 =sp.Matrix( (rec_vec[0]-rec_vec[1])/3);
-  K1 =sp.Matrix(-(rec_vec[0]-rec_vec[1])/3);
+  K0 =np.array(sp.Matrix( (rec_vec[0]-rec_vec[1])/3)).flatten();
+  K1 =np.array(sp.Matrix(-(rec_vec[0]-rec_vec[1])/3)).flatten();
 
 graphene = Hexagonal();
 
