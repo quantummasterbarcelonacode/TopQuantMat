@@ -10,7 +10,7 @@ from sympy import Q
 
 welcome="Packages are loaded. ¡Welcome!"
 
-def my_print(message):
+def Print(message):
   display(Markdown(message))
 def print_eq(suffix, eq):
   display(Markdown(suffix + r" $%s$ "%latex(eq)))
