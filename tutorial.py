@@ -65,7 +65,6 @@ def EigenSystem( H, coord_syst=[] ):
   eigsyst = H.eigenvects();
   for eigv,mul,deg_eigs in eigsyst:
     for eig in deg_eigs:
-      print(list(eig))
       Es.append(eigv);
       Psis.append(eig);
   return Es,Psis;  
