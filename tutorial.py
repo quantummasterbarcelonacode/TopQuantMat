@@ -66,7 +66,7 @@ def EigenSystem( H, coord_syst=[] ):
   for eigv,mul,deg_eigs in eigsyst:
     for eig in deg_eigs:
       Es.append(eigv.subs(coord_syst));
-      Psis.append(list(eig.subs(coord_syst)));
+      Psis.append(eig.subs(coord_syst));
   Es  = [ E for E  in Es ];
   Psis= [ sp.simplify(normalize(sp.simplify(Psi) )) for Psi in Psis]
   return Es,Psis;
