@@ -61,10 +61,14 @@ def delta(x,y):
     return 0;
 
 def EigenSystem( H, coord_syst=[] ):
+  Es  = []; Psis= [];
   eigsyst = H.eigenvects();
-  Psi= [ sp.simplify(normalize(sp.simplify(eigv[0].subs(coord_syst) ) )) for eigval,eigmul,eigv  in eigsyst ];
-  E  = [ sp.simplify(eigval.subs(coord_syst)  ) for eigval,eigmul,eigvec  in eigsyst ];
-  return E,Psi;    
+  for eigv,mul,deg_eigs in eigsyst:
+    for eig in deg_eigs:
+      print(list(eig))
+      Es.append(eigv);
+      Psis.append(eig);
+  return Es,Psis;  
 
 def exps2trig(x):
     return sp.trigsimp(sp.simplify(x).rewrite(sp.sin))
