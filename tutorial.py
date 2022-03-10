@@ -23,6 +23,11 @@ def Rz(phi):
                       [ 0            , 0        , 1 ]
                     ]);
 
+def Rz_2D(phi):
+  return sp.Matrix([  [ sp.cos(phi),-sp.sin(phi) ],
+                      [ sp.sin(phi), sp.cos(phi) ]
+                    ]);
+
 
 def FirstOrderTaylor( h, x,x0 ):
     dx   = x; evalx=  list(zip(x,x0));
