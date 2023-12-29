@@ -16,7 +16,7 @@ def print_eq(suffix, eq):
   display(Markdown(suffix + r" $%s$ "%latex(eq)))
   
 
-euler = (sp.Symbol("e"),sp.exp(1));
+euler = (sp.Symbol("e",positive=True),sp.exp(1));
 def Rz(phi):
   return sp.Matrix([  [ sp.cos(phi),-sp.sin(phi), 0 ],
                       [ sp.sin(phi), sp.cos(phi), 0 ],
